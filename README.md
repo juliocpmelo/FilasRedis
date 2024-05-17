@@ -13,13 +13,13 @@ problemas que precise de filas, especialmente o problema de enfileiramento de ta
 
 Clone o repositório e execute os testes contidos em [FilasRedisApplicationTests.java](src%2Ftest%2Fjava%2Fcom%2Fexample%2Fdemo%2FFilasRedisApplicationTests.java).
 
-Os primeiros dois testes testProcessJobs e testProcessAsync são apenas para demonstração de como
+Os primeiros dois testes **testProcessJobs** e **testProcessAsync** são apenas para demonstração de como
 podemos implementar filas diretamente no banco de dados, sem uso do redis. Essa prática tem alguns
 problemas, especialmente no segunto teste, pois não foram implementadas quaisquer medidas de sincronização
 entre threads que consomem do banco. No entanto, é possível implementar o comportamento desejado usando
 apenas o banco de dados, com alguns tradeoffs de desempenho e algumas colunas a mais na entidade [Tarefa](src%2Fmain%2Fjava%2Fcom%2Fexample%2Fdemo%2Fmodel%2FTarefa.java).
 
 Os dois últimos testes tentam mostrar como é possível implementar o comportamento de filas usando o Redis.
-Primeiramente o teste testProcessAsyncRedis explora o uso da RQueue, uma fila simples que implementa
-a política FIFO; por fim o teste testProcessAsyncRedisScoredSet mostra a utilização da estrutura RScoredSortedSet
-que é um Set ordenado que pode ser usado como uma fila sem valores duplicados.
+Primeiramente o teste **testProcessAsyncRedis** explora o uso da RQueue, uma fila simples que implementa
+a política FIFO; por fim o teste **testProcessAsyncRedisScoredSet** mostra a utilização da estrutura RScoredSortedSet
+que pode ser usado como uma fila sem valores duplicados.
